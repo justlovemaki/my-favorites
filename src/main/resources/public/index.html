@@ -1,0 +1,125 @@
+<html>
+<head>
+<meta charset="utf-8"></meta>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+<meta name="description" content=""></meta>
+<meta name="author" content=""></meta>
+<link rel="shortcut icon" type="image/png" href="images/favicon.png"></link>
+
+<title>web书签</title>
+
+<link rel="stylesheet" type="text/css" href="//lib.baomitu.com/iview/3.4.2/styles/iview.css">
+<script type="text/javascript" src="//lib.baomitu.com/vue/2.6.10/vue.min.js"></script>
+<script type="text/javascript" src="//lib.baomitu.com/iview/3.4.2/iview.min.js"></script>
+<script type="text/javascript" src="//lib.baomitu.com/axios/0.19.0/axios.min.js"></script>
+<script type="text/javascript" src="js/index.min.js"></script>
+<link rel="stylesheet" type="text/css" href="css/index.min.css">
+</head>
+
+<body>
+	<div id="app">
+		<div class="my-search">
+			<span class="my-zan" v-on:click="showewm"><i class="ivu-icon ivu-icon-md-heart-outline"></i></span>
+			<span class="my-search-text">搜索：</span>
+		    <auto-complete
+		        v-model="query"
+		        icon="ios-search"
+		      	v-on:input="handleSearch(query)"
+		        placeholder="按标题搜索"　style="width:70%">
+		        <div class="my-search-auto-complete-item" v-for="item in data">
+		            <div class="my-search-auto-complete-group">
+		                <span><a :href='item.url'  target='_blank' rel='noreferrer'>{{ item.title }}</a></span>
+		            </div>
+		        </div>
+		    </auto-complete>
+		</div>
+		<div>
+		<ul>
+			<li v-for="(line, index) in arrRoot" :key="line.name" class="ivu-card ivu-card-bordered my-card">
+				<div v-if="!line.roothtml" class="ivu-card-head my-root-color ">正在加载{{line.name}}。。。</div>
+				<div v-if="!!line.roothtml" class="ivu-card-head my-root-color ">{{line.name}}</div>
+				<div v-if="!!line.roothtml" v-html="line.roothtml" :data-index="index" @click="buildDirHtml"></div>
+			</li>
+		</ul>
+		</div>
+	</div>
+	<script>
+	    var vm = new Vue({ 
+	        el: '#app',
+	        data(){
+	            return {
+	            	 ops:{apiuser:"https://api.github.com/users/",
+	 	            		apirepos:"https://api.github.com/repos/",
+	 	            		name:"justlovemaki",
+	 	            		path:"favorites",
+	 	            		reps:"my-favorites",
+	 	            		libs:"root",
+	 	            		dir:'',
+	 	            		infos:''},
+	 	           	arrRoot:null,
+	 	          	query: '',
+                   	data: []
+	            }
+	        },
+	        created(){
+	            var pns = location.pathname.split('/');
+	            if(pns[1] == this.ops.path){
+	            	pns.splice(1,1);
+	            }
+	            //账号
+	            this.ops.name = (!pns[1] || pns[1] == "") ?  this.ops.name : pns[1];
+	            //访问路径
+	            this.ops.dir = this.ops.apirepos + this.ops.name + "/" + this.ops.reps + "/contents/" + this.ops.libs;
+	            this.ops.infos = this.ops.apiuser + this.ops.name;
+	            console.log(this.ops);
+	            
+	            this.fetchUserInfos();
+	            this.fetchUserDir();
+	        },
+	        methods: {
+	            fetchUserInfos(){
+	        		axios.get(this.ops.infos)
+	        		.then((resp) => {
+	        			console.log(resp.data);
+	        			document.title=resp.data.login+"的web书签";
+	        		})
+	        		.catch(function (error) {
+	        		    console.error(error);
+	        		});
+	        	},
+	        	fetchUserDir(){	      
+	        		this.arrRoot = new Array();
+	        		axios.get(this.ops.dir)
+	        		.then((resp) => {
+	        			console.log(resp.data);	        			
+		        		resp.data.some(function (line) {
+		        			var cacheItem = sessionStorage.getItem(line.name);
+			        		if(!!cacheItem){
+			        			vm.arrRoot.push(JSON.parse(cacheItem));
+			        			console.log("从缓存取marks--"+line.name);
+			        		}else{
+		        				var initObj = {text:line.download_url,name:line.name,list:null,roothtml:null};
+		        				this.getMd(line.name,line.download_url,vm.arrRoot,initObj);
+			        		}
+	        			});
+	        		})
+	        		.catch(function (error) {
+	        		    console.error(error);
+	        		});
+	        	},
+	        	handleSearch (value) {
+                    this.data = !value && !value.trim() ? [] : serachMarks(value, vm.arrRoot);
+                },
+                showewm(){
+                	this.$Modal.success({
+                        title: '觉得赞的话，赞助一下呗！',
+                        content: '<img src="images/pickme.jpg"  alt="二维码" />',
+                        okText: '谢谢'
+                    });
+                }
+	        }
+	    });
+  </script>
+</body>
+</html>
