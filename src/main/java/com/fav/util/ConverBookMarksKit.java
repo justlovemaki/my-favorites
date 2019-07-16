@@ -17,8 +17,10 @@ import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.io.IoUtil;
 
 public class ConverBookMarksKit {
+  private static final String HOME = "/home/maki/桌面/marks/";
+
   public static void main(String[] args) {
-    toMarkDown(getBookMarks("/home/maki/桌面/marks/test-mark.html"));
+    toMarkDown(getBookMarks(HOME + "test-mark.html"));
   }
 
   private static InputStream getBookMarks(String path) {
@@ -74,7 +76,7 @@ public class ConverBookMarksKit {
     level.append("* ");
     foreachIterator(it, sb, level);
     // System.out.println(sb.toString());
-    FileUtil.writeString(sb.toString(), new File("/home/maki/桌面/marks/" + mdFileName + ".md"), "utf-8");
+    FileUtil.writeString(sb.toString(), new File(HOME + mdFileName + ".md"), "utf-8");
   }
 
   private static void foreachIterator(Iterator<Element> it, StringBuilder sb, StringBuilder level) {
@@ -86,7 +88,8 @@ public class ConverBookMarksKit {
       } else if (el.childNodeSize() < 4) {// mark
         Element e = el.child(0);
         level = new StringBuilder(leveltmp);
-        sb.append(level.toString()).append("[" + e.text() + "]").append("(" + e.attr("href") + ")").append("![图片alt](" + e.attr("icon") + ")").append("\r\n");
+//        sb.append(level.toString()).append("[" + e.text() + "]").append("(" + e.attr("href") + ")").append("![图片alt](" + e.attr("icon") + ")").append("\r\n");
+        sb.append(level.toString()).append("[" + e.text() + "]").append("(" + e.attr("href") + ")").append("\r\n");
       } else {// dir
         Element e = el.child(0);
         level = new StringBuilder(leveltmp);
