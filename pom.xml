@@ -6,7 +6,7 @@
 	<groupId>com.fav</groupId>
 	<artifactId>my-favorites</artifactId>
 	<version>0.0.1</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 
 	<name>my-favorites</name>
 	<description>fav</description>
@@ -136,6 +136,7 @@
                 	<fork>true</fork>
             	</configuration>
 			</plugin>
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
