@@ -12,7 +12,8 @@
 
 ## 使用
 * fork项目到你的github仓库
-* 修改root目录下的ｍｄ文件
+* 修改root目录下的md文件
+* 修改"* ",星号越多层级越高
 * 访问路径 http://web.myfav.online/{你的仓库根路径}
 * [试用一下吧]( http://web.myfav.online)
 
