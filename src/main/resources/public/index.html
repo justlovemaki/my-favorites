@@ -36,7 +36,7 @@
 		</div>
 		<div>
 		<ul>
-			<li v-for="(line, index) in arrRoot" :key="line.name" class="ivu-card ivu-card-bordered my-card">
+			<li v-for="(line, index) in arrRoot" :key="line.name" class="ivu-card ivu-card-bordered my-card" :style="{display:line.display}">
 				<div v-if="!line.roothtml" class="ivu-card-head my-root-color ">正在加载{{line.name}}。。。</div>
 				<div v-if="!!line.roothtml" class="ivu-card-head my-root-color ">{{line.name}}</div>
 				<div v-if="!!line.roothtml" v-html="line.roothtml" :data-index="index" @click="buildDirHtml"></div>
@@ -51,15 +51,18 @@
 	            return {
 	            	 ops:{apiuser:"https://api.github.com/users/",
 	 	            		apirepos:"https://api.github.com/repos/",
+	 	            		download:"https://raw.githubusercontent.com/",
 	 	            		name:"justlovemaki",
 	 	            		path:"favorites",
 	 	            		reps:"my-favorites",
 	 	            		libs:"root",
+	 	            		showkeyurl:'',
 	 	            		dir:'',
 	 	            		infos:''},
 	 	           	arrRoot:null,
 	 	          	query: '',
-                   	data: []
+                   	data: [],
+                   	showkey: '89757'
 	            }
 	        },
 	        created(){
@@ -72,10 +75,12 @@
 	            //访问路径
 	            this.ops.dir = this.ops.apirepos + this.ops.name + "/" + this.ops.reps + "/contents/" + this.ops.libs;
 	            this.ops.infos = this.ops.apiuser + this.ops.name;
+	            this.ops.showkeyurl = this.ops.download + this.ops.name + "/" + this.ops.reps + "/master/showkey"; 
 	            console.log(this.ops);
 	            
 	            this.fetchUserInfos();
 	            this.fetchUserDir();
+	            this.fetchShowkey();
 	        },
 	        methods: {
 	            fetchUserInfos(){
@@ -83,6 +88,16 @@
 	        		.then((resp) => {
 	        			console.log(resp.data);
 	        			document.title=resp.data.login+"的web书签";
+	        		})
+	        		.catch(function (error) {
+	        		    console.error(error);
+	        		});
+	        	},
+	        	fetchShowkey(){
+	        		axios.get(this.ops.showkeyurl)
+	        		.then((resp) => {
+	        			console.log(resp.data);
+	        			this.showkey = resp.data;
 	        		})
 	        		.catch(function (error) {
 	        		    console.error(error);
@@ -99,7 +114,7 @@
 			        			vm.arrRoot.push(JSON.parse(cacheItem));
 			        			console.log("从缓存取marks--"+line.name);
 			        		}else{
-		        				var initObj = {text:line.download_url,name:line.name,list:null,roothtml:null};
+		        				var initObj = {text:line.download_url,name:line.name,list:null,roothtml:null,display:'block'};
 		        				this.getMd(line.name,line.download_url,vm.arrRoot,initObj);
 			        		}
 	        			});
@@ -109,7 +124,12 @@
 	        		});
 	        	},
 	        	handleSearch (value) {
-                    this.data = !value && !value.trim() ? [] : serachMarks(value, vm.arrRoot);
+                    this.data = !value && !value.trim() ? [] : serachMarks(value, this.arrRoot);
+                    if(value == this.showkey){
+                    	this.arrRoot.forEach(function(obj) {
+                    		obj.display='block';
+                    	});
+                    }
                 },
                 showewm(){
                 	this.$Modal.success({

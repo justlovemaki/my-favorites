@@ -7,6 +7,9 @@ async function getMd(name, url, arrRoot, initObj) {
 	initObj.roothtml = buildRootHtml(initObj.list);
 	initObj.deep = 1;
 	initObj.path = "/";
+	if(name.indexOf("hide.md") >= 0){
+		initObj.display='none';
+	}
 	
 	sessionStorage.setItem(name, JSON.stringify(initObj));
 }
