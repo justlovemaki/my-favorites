@@ -18,6 +18,7 @@
 * hide.md结尾的文件，默认隐藏
 * 搜索框输入89757显示隐藏
 * 访问路径 http://web.myfav.online/{你的仓库根路径}
+* url最后加上#tk={token}可通过token访问私有仓库内容
 * [试用一下吧]( http://web.myfav.online)
 
 ## Issue

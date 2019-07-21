@@ -1,8 +1,17 @@
 const deep = 5;
 
-async function getMd(name, url, arrRoot, initObj) {
+async function getMd(name, gourl, vm, initObj) {
+	var arrRoot = vm.arrRoot;
 	arrRoot.push(initObj);
-	var res = await axios.get(url);
+	
+	var url = gourl;
+	var pp = {};
+	if(!!vm.apitoken){
+		url = vm.githubController;
+		pp.tk = vm.apitoken;
+		pp.url = gourl;
+	}
+	var res = await axios.get(url,{params:pp});
 	initObj.list = parseMdContent(res.data);
 	initObj.roothtml = buildRootHtml(initObj.list);
 	initObj.deep = 1;

@@ -58,14 +58,18 @@
 	 	            		libs:"root",
 	 	            		showkeyurl:'',
 	 	            		dir:'',
-	 	            		infos:''},
+	 	            		infos:''
+	 	            		},
 	 	           	arrRoot:null,
 	 	          	query: '',
                    	data: [],
-                   	showkey: '89757'
+                   	showkey: '89757',
+                   	githubController: 'gtb',
+                   	apitoken:null
 	            }
 	        },
 	        created(){
+	        	this.apitoken = location.hash.split('=')[1];
 	            var pns = location.pathname.split('/');
 	            if(pns[1] == this.ops.path){
 	            	pns.splice(1,1);
@@ -94,7 +98,14 @@
 	        		});
 	        	},
 	        	fetchShowkey(){
-	        		axios.get(this.ops.showkeyurl)
+	        		var url = this.ops.showkeyurl;
+	        		var pp = {};
+	        		if(!!this.apitoken){
+	        			url = this.githubController;
+	        			pp.tk = this.apitoken;
+	        			pp.url = this.ops.showkeyurl;
+	        		}
+	        		axios.get(url,{params:pp})
 	        		.then((resp) => {
 	        			console.log(resp.data);
 	        			this.showkey = resp.data;
@@ -105,7 +116,14 @@
 	        	},
 	        	fetchUserDir(){	      
 	        		this.arrRoot = new Array();
-	        		axios.get(this.ops.dir)
+	        		var url = this.ops.dir;
+	        		var pp = {};
+	        		if(!!this.apitoken){
+	        			url = this.githubController;
+	        			pp.tk = this.apitoken;
+	        			pp.url = this.ops.dir;
+	        		}
+	        		axios.get(url,{params:pp})
 	        		.then((resp) => {
 	        			console.log(resp.data);	        			
 		        		resp.data.some(function (line) {
@@ -115,7 +133,7 @@
 			        			console.log("从缓存取marks--"+line.name);
 			        		}else{
 		        				var initObj = {text:line.download_url,name:line.name,list:null,roothtml:null,display:'block'};
-		        				this.getMd(line.name,line.download_url,vm.arrRoot,initObj);
+		        				this.getMd(line.name,line.download_url,vm,initObj);
 			        		}
 	        			});
 	        		})
