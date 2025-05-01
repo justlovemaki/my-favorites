@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GitHub Line Inserter Options</title>
+    <style>
+        body { font-family: sans-serif; padding: 10px; min-width: 300px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        input[type="password"], input[type="text"] { width: 95%; padding: 8px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 4px; }
+        button { padding: 10px 15px; background-color: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer; }
+        button:hover { background-color: #0056b3; }
+        #status { margin-top: 15px; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h2>Settings</h2>
+    <label for="apiKey">GitHub Personal Access Token (PAT):</label>
+    <input type="password" id="apiKey" placeholder="Enter your GitHub PAT">
+    <p><small>Requires 'repo' scope for private repos or modifying any repo.</small></p>
+
+    <button id="save">Save</button>
+    <div id="status"></div>
+
+    <script src="options.js"></script>
+</body>
+</html>

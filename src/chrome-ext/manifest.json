@@ -1,0 +1,27 @@
+{
+    "manifest_version": 3,
+    "name": "GitHub File Line Inserter",
+    "version": "1.0",
+    "description": "Reads a GitHub file and inserts content at a specific line using the GitHub API.",
+    "permissions": [
+      "storage",
+      "activeTab"
+    ],
+    "host_permissions": [
+        "https://book.justlikemaki.vip/*"
+    ],
+    "options_page": "options.html",
+    "action": {
+      "default_popup": "popup.html",
+      "default_icon": {
+        "16": "icons/icon16.png",
+        "48": "icons/icon48.png",
+        "128": "icons/icon128.png"
+      }
+    },
+    "icons": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  }

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<html>
+<head>
+    <title>GitHub Line Inserter</title>
+    <style>
+        body { font-family: sans-serif; padding: 15px; min-width: 380px; } /* Increased min-width slightly */
+        label { display: block; margin-bottom: 3px; font-weight: bold; }
+        input[type="text"], input[type="number"], textarea {
+            width: 95%; padding: 6px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 3px; font-size: 1em;
+        }
+        textarea { height: 60px; resize: vertical; }
+        button { padding: 10px 15px; background-color: #28a745; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 1em; margin-top: 5px; } /* Added margin-top */
+        button:hover { background-color: #218838; }
+        button:disabled { background-color: #ccc; cursor: not-allowed; }
+        /* Style for the smaller "Find Line" button */
+        .find-button {
+             padding: 4px 8px; font-size: 0.9em; margin-left: 5px; background-color: #007bff;
+             vertical-align: middle; /* Align with input */
+             margin-bottom: 10px; /* Match input margin */
+        }
+        .find-button:hover { background-color: #0056b3; }
+        .find-button:disabled { background-color: #ccc; }
+
+        .input-group { display: flex; align-items: center; margin-bottom: 10px; } /* Group search input and button */
+        .input-group input[type="text"] { flex-grow: 1; margin-bottom: 0; } /* Input takes available space, remove its bottom margin */
+
+
+        #status { margin-top: 15px; font-weight: bold; white-space: pre-wrap; word-wrap: break-word; }
+        .error { color: red; }
+        .success { color: green; }
+        a { color: #007bff; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <h3>Insert Content into GitHub File</h3>
+
+    <label for="owner">Repository Owner:</label>
+    <input type="text" id="owner" placeholder="e.g., octocat" value="">
+
+    <label for="repo">Repository Name:</label>
+    <input type="text" id="repo" placeholder="e.g., Spoon-Knife" value="">
+
+    <label for="path">File Path:</label>
+    <input type="text" id="path" placeholder="e.g., README.md or src/myFile.js" value="">
+
+    <!-- Search Section -->
+    <label for="searchInput">Find Line Containing:</label>
+    <div class="input-group">
+        <input type="text" id="searchInput" placeholder="Enter text to find line number">
+        <button id="findLineButton" class="find-button">Find</button>
+    </div>
+    <!-- End Search Section -->
+
+    <label for="lineNumber">Line Number to Insert to:</label>
+    <input type="number" id="lineNumber" placeholder="e.g., 5 (or found via search)" min="1"> <!-- Changed min to 1 -->
+
+    <label for="labelName">Label Name:</label> <!-- Updated label -->
+    <input type="text" id="labelName" placeholder="e.g., Page Title (from tab)"> <!-- Default value kept -->
+
+    <label for="content">Content (URL):</label> <!-- Updated label -->
+    <textarea id="content" placeholder="e.g., Page URL (from tab)"></textarea>
+
+    <button id="modifyButton">Modify File</button>
+
+    <div id="status"></div>
+
+    <script src="popup.js"></script>
+</body>
+</html>
