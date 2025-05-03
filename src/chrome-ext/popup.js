@@ -6,14 +6,14 @@ const repoInput = document.getElementById('repo');
 const pathInput = document.getElementById('path');
 const searchInput = document.getElementById('searchInput');
 const lineNumberInput = document.getElementById('lineNumber');
-const labelNameInput = document.getElementById('labelName'); // For Insert
-const contentInput = document.getElementById('content');       // For Insert
+const labelNameInput = document.getElementById('labelName'); 
+const contentInput = document.getElementById('content');      
 
 // Button Elements
 const findLineButton = document.getElementById('findLineButton');
-const insertButton = document.getElementById('insertButton'); // Renamed from modifyButton
-const editButton = document.getElementById('editButton');     // New
-const deleteButton = document.getElementById('deleteButton');   // New
+const insertButton = document.getElementById('insertButton'); 
+const editButton = document.getElementById('editButton');    
+const deleteButton = document.getElementById('deleteButton');  
 
 // Other Elements
 const statusDiv = document.getElementById('status');
@@ -254,8 +254,8 @@ function saveInputValues() {
         owner: ownerInput.value,
         repo: repoInput.value,
         path: pathInput.value,
-        // lineNumber: lineNumberInput.value, // Maybe don't save line number or search
-        // search: searchInput.value
+        lineNumber: lineNumberInput.value,
+        search: searchInput.value
     };
     chrome.storage.local.set({ [STORAGE_KEY_LAST_INPUT]: valuesToSave }, () => {
         if (chrome.runtime.lastError) {
@@ -278,9 +278,8 @@ function loadInputValues(callback) {
             ownerInput.value = loadedValues.owner || '';
             repoInput.value = loadedValues.repo || '';
             pathInput.value = loadedValues.path || '';
-            // Don't load line number or search by default
-            // lineNumberInput.value = loadedValues.lineNumber || '';
-            // searchInput.value = loadedValues.search || '';
+            lineNumberInput.value = loadedValues.lineNumber || '';
+            searchInput.value = loadedValues.search || '';
         } else {
             console.log('No saved input values found in storage.');
         }
