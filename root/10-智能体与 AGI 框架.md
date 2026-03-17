@@ -69,9 +69,8 @@
 * * [vibe-coding-cn](https://github.com/2025Emma/vibe-coding-cn)
 * * [vibe-vibe](https://github.com/datawhalechina/vibe-vibe)
 * * [agentic-design-patterns-cn](https://github.com/ginobefun/agentic-design-patterns-cn)
+* * [苍何OpenClaw 从入门到精通指南](https://my.feishu.cn/docx/P6zsdsgYco6i4XxLeIccvlpvnQe)
 * * [OpenClaw 101](https://github.com/mengjian-github/openclaw101)
 * * [awesome-openclaw-usecases](https://github.com/hesamsheikh/awesome-openclaw-usecases)
 * * [一站式 AI Agent 入门指南](https://www.feishu.cn/community/article?id=7592079808767462628&lk-meta=%257B%2522page-meta%2522%253A%257B%2522showBottomNavBar%2522%253A%2522false%2522%257D%257D)
 * * [OpenClaw橙皮书：从入门到精通](https://my.feishu.cn/wiki/H27Iw9ussiaYbokymhncExtjnAh)
-
-* * [苍何OpenClaw 从入门到精通指南](https://my.feishu.cn/docx/P6zsdsgYco6i4XxLeIccvlpvnQe)
