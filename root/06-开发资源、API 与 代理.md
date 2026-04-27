@@ -7,7 +7,6 @@
 * * [薄荷 API](https://x666.me/console/token)
 * * [DuckCoding](https://duckcoding.com/console/topup)
 * * [推理时代](https://aihubmix.com/)
-* * [B4U公益站](https://b4u.qzz.io/console)
 * * [ThatAPI](https://api-point.huawen.blog/)
 * * [Rapid API](https://rapidapi.com/hub)
 * * [ReplicateAPI](https://replicate.com/)
