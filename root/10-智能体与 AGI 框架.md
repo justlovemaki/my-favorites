@@ -33,6 +33,15 @@
 * * [ChatDev](https://github.com/OpenBMB/ChatDev)
 * * [AmeNetwork/aser](https://github.com/AmeNetwork/aser)
 * * [atomic-agents](https://github.com/BrainBlend-AI/atomic-agents)
+* * [hermes-agent](https://github.com/NousResearch/hermes-agent): NousResearch 开源的 Agent 框架，用于构建和训练代理模型。
+* * [ClawTeam](https://github.com/HKUDS/ClawTeam): 多智能体协作（Swarm Intelligence）框架，可一键部署团队级 Agent 自动化工作流。
+* * [Clawith](https://github.com/dataelement/Clawith): 基于 OpenClaw 开发的团队级多智能体协作平台，属于 Agent 框架应用。
+* * [724-office](https://github.com/wangziqi06/724-office): 自我进化的全天候 AI 办公智能体系统，具有记忆与多工具支持，属于 Agent 开发框架与系统。
+* * [agency-agents](https://github.com/msitarzewski/agency-agents): 面向构建 AI Agency (中介/服务机构) 的智能体框架项目。
+* * [OpenSpace](https://github.com/HKUDS/OpenSpace): 自进化的技能引擎与 Agent 开发系统，使得智能体能够以更低成本自动化习得并复用技能。
+* * [GenericAgent](https://github.com/lsdefine/GenericAgent): 极简且可自我进化的通用型 Agent 开发框架。
+* * [openclaw-cn](https://github.com/jiulingyun/openclaw-cn): OpenClaw 的中文社区分支，针对中国网络环境与各类国内通信平台做了深度优化的个人智能体框架。
+* * [openclaw-china](https://github.com/BytePioneer-AI/openclaw-china): 针对国内优化的 OpenClaw 框架定制分支。
 * [信息检索与研究智能体](dir)
 * * [deep-research-web-ui](https://github.com/AnotiaWang/deep-research-web-ui)
 * * [gpt-researcher](https://github.com/assafelovic/gpt-researcher)
@@ -58,6 +67,8 @@
 * * [OpenMOSS](https://github.com/uluckyXH/OpenMOSS)
 * * [paperclip：零人力公司的开源协调](https://github.com/paperclipai/paperclip)
 * * [one-small-step](https://github.com/karminski/one-small-step)
+* * [autoresearch](https://github.com/karpathy/autoresearch): Andrej Karpathy 提出的自动化研究项目，旨在用 Agent 进行信息检索和学术探索。
+* * [daily_stock_analysis](https://github.com/ZhuLinsen/daily_stock_analysis): 自动化进行股票信息搜集与分析的项目，属于研究与信息处理的 Agent。
 * [行业应用智能体](dir)
 * * [AITradeGame](https://github.com/chadyi/AITradeGame)
 * * [ValueCell](https://github.com/ValueCell-ai/valuecell)
@@ -74,3 +85,7 @@
 * * [一站式 AI Agent 入门指南](https://www.feishu.cn/community/article?id=7592079808767462628&lk-meta=%257B%2522page-meta%2522%253A%257B%2522showBottomNavBar%2522%253A%2522false%2522%257D%257D)
 * * [苍何OpenClaw 从入门到精通指南](https://my.feishu.cn/docx/P6zsdsgYco6i4XxLeIccvlpvnQe)
 * * [OpenClaw橙皮书：从入门到精通](https://my.feishu.cn/wiki/H27Iw9ussiaYbokymhncExtjnAh)
+* * [shannon](https://github.com/KeygraphHQ/shannon): Shannon 是一个自主执行渗透测试和安全漏洞挖掘的 AI 黑客智能体，属于垂直行业的应用级 Agent。
+* * [OpenMAIC](https://github.com/THU-MAIC/OpenMAIC): 清华大学开发的多智能体互动教育平台（虚拟课堂），属于典型的行业级垂直应用智能体。
+* * [opensre](https://github.com/Tracer-Cloud/opensre): 用于开发 AI SRE (站点可靠性工程) 智能体的开源套件，属于 IT 运维垂直行业应用。
+* * [inkos](https://github.com/Narcooo/inkos): 自主撰写、审校、修改长篇小说的多智能体写作系统，属于文学内容创作垂直行业 Agent。
