@@ -18,6 +18,8 @@
 * * [Tavily - The Web Access Layer for AI Agents](https://www.tavily.com/)
 * * [Exa | Web Search API](https://exa.ai/)
 * * [Gemini Key Seeker](https://geminikeyseeker.o0o.moe/)
+* * [zhongzhuan](https://api.zhongzhuan.win/pricing): 该链接为 API 中转与定价页面，属于大模型接口代理与 API 分发服务。
+* * [qwen2API](https://github.com/YuJunZhiXue/qwen2API): 提供千问 (Qwen2) 模型的 API 接口调用封装与服务支持。
 * [模型与资产平台](dir)
 * * [DeepWiki ](https://deepwiki.com/)
 * * [Zread](https://zread.ai/)
