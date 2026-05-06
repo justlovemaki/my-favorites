@@ -42,6 +42,7 @@
 * * [GenericAgent](https://github.com/lsdefine/GenericAgent): 极简且可自我进化的通用型 Agent 开发框架。
 * * [openclaw-cn](https://github.com/jiulingyun/openclaw-cn): OpenClaw 的中文社区分支，针对中国网络环境与各类国内通信平台做了深度优化的个人智能体框架。
 * * [openclaw-china](https://github.com/BytePioneer-AI/openclaw-china): 针对国内优化的 OpenClaw 框架定制分支。
+* * [browser-use/browser-harness](https://github.com/browser-use/browser-harness): 基于浏览器的AI自动化框架，属于构建自主智能体（Agent）的框架工具。
 * [信息检索与研究智能体](dir)
 * * [deep-research-web-ui](https://github.com/AnotiaWang/deep-research-web-ui)
 * * [gpt-researcher](https://github.com/assafelovic/gpt-researcher)
