@@ -90,3 +90,4 @@
 * * [OpenMAIC](https://github.com/THU-MAIC/OpenMAIC): 清华大学开发的多智能体互动教育平台（虚拟课堂），属于典型的行业级垂直应用智能体。
 * * [opensre](https://github.com/Tracer-Cloud/opensre): 用于开发 AI SRE (站点可靠性工程) 智能体的开源套件，属于 IT 运维垂直行业应用。
 * * [inkos](https://github.com/Narcooo/inkos): 自主撰写、审校、修改长篇小说的多智能体写作系统，属于文学内容创作垂直行业 Agent。
+* * [undefined](https://github.com/can4hou6joeng4/boss-agent-cli): 这是一个专门针对“BOSS 直聘”开发的命令行智能体工具，支持职位搜索、简历优化以及自动化求职流，属于特定垂直领域（招聘）的行业应用 Agent。
